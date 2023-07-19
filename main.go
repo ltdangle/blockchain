@@ -49,7 +49,7 @@ func CreateBlockchain(difficulty int) Blockchain {
 	}
 }
 
-func (b *Blockchain) addBlock(from, to string, amount float64) {
+func (b *Blockchain) AddBlock(from, to string, amount float64) {
 	blockData := map[string]interface{}{
 		"from":   from,
 		"to":     to,
@@ -65,7 +65,7 @@ func (b *Blockchain) addBlock(from, to string, amount float64) {
 	b.chain = append(b.chain, newBlock)
 }
 
-func (b Blockchain) isValid() bool {
+func (b Blockchain) IsValid() bool {
 	for i := range b.chain[1:] {
 		previousBlock := b.chain[i]
 		currentBlock := b.chain[i+1]
@@ -75,4 +75,3 @@ func (b Blockchain) isValid() bool {
 	}
 	return true
 }
-
